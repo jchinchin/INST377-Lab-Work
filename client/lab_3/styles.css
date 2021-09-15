@@ -6,12 +6,8 @@ box-sizing: border-box;
 
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
-    .header {
-        width: 50%;
-    }
-    .photo-grid-item {
-        width: 50%;
-    }
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* Tablet Styles */
