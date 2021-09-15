@@ -1,15 +1,15 @@
 a {
-color: white;
-}
-a:visited {
-color: white;
-}
-a:hover {
-color: white;
-}
-a:active {
-color: white;
-}
+    color: white;
+  }
+  a:visited {
+    color: white;
+  }
+  a:hover {
+    color: white;
+  }
+  a:active {
+    color: white;
+  }
 
 * {
 margin: 0;
@@ -97,19 +97,8 @@ align-self: flex-end;
 margin-bottom: 20px;
 }
 
-.github {
-    a {
-        color: #5995DA;
-        }
-    a:visited {
-        color: #5995DA;
-        }
-    a:hover {
-        color: #5995DA;
-        }
-    a:active {
-        color: #5995DA;
-        }
+.github a {
+    color: #5995DA
 }
 
 .photo-grid-container {
