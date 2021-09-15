@@ -5,15 +5,15 @@ box-sizing: border-box;
 }
 
 @media only screen and (max-width: 400px) {
-body {
-    background-color: #F09A9D;
+    .photo-grid-item {
+        width: 50%;
     }
 }
 
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
     .photo-grid-item {
-      width: 50%;
+        width: 50%;
     }
   }
 
