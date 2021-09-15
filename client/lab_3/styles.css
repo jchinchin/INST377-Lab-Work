@@ -1,3 +1,16 @@
+a {
+    color: red;
+}
+a:visited {
+    color: ochre;
+}
+a:hover {
+    color: lime;
+}
+a:active {
+    color: purple;
+}
+
 * {
 margin: 0;
 padding: 0;
@@ -6,6 +19,9 @@ box-sizing: border-box;
 
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
+    .header {
+        width: 50%;
+    }
     .photo-grid-item {
         width: 50%;
     }
@@ -16,7 +32,7 @@ box-sizing: border-box;
     .photo-grid-item {
         width: 50%;
     }
-  }
+}
 
 .title{
 display: inline-block;
