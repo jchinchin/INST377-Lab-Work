@@ -57,10 +57,12 @@ justify-content: flex-end;
 }
 
 .database {
+color: white;
 margin-left: auto;
 }
 
 .main {
+color: white;
 margin-left: 20px;
 }
 
