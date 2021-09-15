@@ -32,22 +32,6 @@ margin: 0;
 margin-bottom: 5px;
 }
 
-
-.header-container {
-color: #5995DA;
-background-color: #D6E9FE;
-display: flex;
-justify-content: center;
-}
-
-.header {
-width: 900px;
-height: 300px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
 .menu-container {
 color: #fff;
 background-color: #5995DA; 
@@ -69,18 +53,33 @@ display: flex;
 justify-content: flex-end;
 }
 
+.database {
+margin-left: auto;
+}
+
 .main {
 margin-left: 20px;
+}
+
+.header-container {
+color: #5995DA;
+background-color: #D6E9FE;
+display: flex;
+justify-content: center;
+}
+
+.header {
+width: 900px;
+height: 300px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .group,
 .github {
 align-self: flex-end;
 margin-bottom: 20px;
-}
-
-.signup {
-margin-left: auto;
 }
 
 .photo-grid-container {
