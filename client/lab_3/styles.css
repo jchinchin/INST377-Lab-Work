@@ -59,17 +59,13 @@ width: 900px;
 height: 300px;
 display: flex;
 justify-content: space-between;
-align-items: stretch;
+align-items: center;
 }
 
 .social,
 .subscribe {
 align-self: flex-end;
 margin-bottom: 20px;
-}
-
-.social, .logo, .subscribe {
-border: 1px solid #5995DA;
 }
 
 .signup {
