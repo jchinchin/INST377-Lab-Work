@@ -22,6 +22,15 @@ body {
     }
 }
 
+.title{
+display: inline-block;
+background-color: rgba(0,139, 139,0.8);
+border-radius: 4px;
+padding: 10px 15px;
+margin: 0;
+margin-bottom: 5px;
+}
+
 .menu-container {
 color: #fff;
 background-color: #5995DA; 
