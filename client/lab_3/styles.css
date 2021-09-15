@@ -4,19 +4,6 @@ padding: 0;
 box-sizing: border-box;
 }
 
-/* Mobile Styles */
-@media only screen and (max-width: 400px) {
-    display: flex;
-    flex-wrap: wrap;
-    .photo-grid-item {
-        width: 100%;
-        height: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
     .photo-grid-item {
@@ -46,7 +33,7 @@ justify-content: center;
 border: 1px solid #fff;
 width: 900px;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 }
 
 .links {
