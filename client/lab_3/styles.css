@@ -43,6 +43,11 @@
   justify-content: flex-end;
 }
 
+.links a {
+  style=color: white;
+  text-decoration: none;
+}
+
 .database {
   margin-left: auto;
 }
@@ -64,6 +69,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header a {
+  color: #5995da;
+  text-decoration: none;
 }
 
 .group,
