@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function gameOver() {
     clearInterval(gameTimerId);
-    console.log("Game Vver");
+    console.log("Game Over");
     isGameOver = true;
     document.removeEventListener("keyup", control);
     ground.classList.add("ground");
