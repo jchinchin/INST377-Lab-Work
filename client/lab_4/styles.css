@@ -1,3 +1,7 @@
+:focus {
+  background-color: sandybrown;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -136,7 +140,7 @@
 .carousel_actions {
   display: flex;
   width: 100%;
-  justify-content:space-around;
+  justify-content: space-around;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -163,7 +167,6 @@
   border-radius: 4px;
   padding-right: 8px;
   padding-left: 8px;
-  background-color:sandybrown;
 }
 
 @keyframes fadeVisibility {
