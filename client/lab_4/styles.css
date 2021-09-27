@@ -1,4 +1,4 @@
-:focus {
+.photo-grid-container .carousel_actions button:focus {
   background-color: sandybrown;
 }
 
