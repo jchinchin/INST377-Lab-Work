@@ -22,9 +22,6 @@ body {
 }
 
 /* Page Layout */
-.columns {
-  display: flex;
-}
 
 .wrapper {
   display: flex;
