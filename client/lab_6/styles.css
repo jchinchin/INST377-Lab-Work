@@ -6,7 +6,6 @@
 
 html {
   box-sizing: border-box;
-  background: #ffc600;
   font-family: "helvetica neue";
   font-size: 20px;
   font-weight: 200;
@@ -17,7 +16,6 @@ body {
   padding: 0;
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
     ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
-  background-color: darkslategray;
   min-height: 100%;
 }
 

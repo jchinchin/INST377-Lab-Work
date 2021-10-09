@@ -1,3 +1,5 @@
+const { literal } = require("sequelize/types");
+
 async function windowActions() {
   const endpoint = 'https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json';
 
@@ -45,11 +47,11 @@ async function windowActions() {
         );
         return `
         <li>
-          <span class="name">${name}</span>
-          <span class="category">${category}</span>
-          <span class="address_line_1">${address_line_1}</span>
-          <span class="city">${city}</span>
-          <span class="zip">${zip}</span>
+          <span class="name">${name}</span><br/>
+          <span class="category">${category}</span><br/>
+          <span class="address_line_1">${address_line_1}</span><br/>
+          <span class="city">${city}</span><br/>
+          <span class="zip">${zip}</span><br/>
         </li>
       `;
       })
@@ -63,6 +65,7 @@ async function windowActions() {
   searchInput.addEventListener('change', displayMatches);
   searchInput.addEventListener('keyup', (evt) => {
     displayMatches(evt);
+    li[i].style.display = "block";
   });
 }
 window.onload = windowActions;
