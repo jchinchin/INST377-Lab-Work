@@ -23,7 +23,8 @@ body {
 
 /* Page Layout */
 .columns {
-  display: flex;}
+  display: flex;
+}
 
 .wrapper {
   display: flex;
@@ -61,8 +62,6 @@ input.search {
 
 .suggestions {
   margin: 0;
-  padding: 0;
-  position: relative;
 }
 
 .suggestions li {
@@ -82,17 +81,13 @@ span.population {
 }
 
 .name {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .address {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .city {
-    text-transform: uppercase;
-}
-
-.ul {
-    list-style-type: circle;
+  text-transform: uppercase;
 }
