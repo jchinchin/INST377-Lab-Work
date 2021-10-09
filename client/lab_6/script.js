@@ -62,6 +62,7 @@ async function windowActions() {
 
   const searchInput = document.querySelector('.search');
   const suggestions = document.querySelector('.suggestions');
+  suggestions.innerHTML = '';
 
   searchInput.addEventListener('change', displayMatches);
   searchInput.addEventListener('keyup', (evt) => {
