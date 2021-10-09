@@ -2,76 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      Joshua Chin Lab 6: Typeahead Entries
-    </title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
+    <title>Joshua Chin Lab 6: Typeahead Entries</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <div class="wrapper">
       <div class="container">
-        <div class="columns is-vcentered is-centered is-mobile">
-          <div class="column is-full" style="background-color: darkslategray">
-            <div class="box" style="background-color: khaki">
-              <p class="title">
-                Joshua Chin Lab 6: Typeahead Entries
-              </p>
-            </div>
-          </div>
-
-          <div class="column is-narrow">
-            <form action="/api" method="GET" class="box">
-              <div class="field">
-                <label class="label">First Name</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    style="border-color: black"
-                  />
-                </div>
-              </div>
-
-              <div class="field">
-                <label class="label">Food Preference</label>
-                <div class="control">
-                  <input
-                    class="input"
-                    type="text"
-                    style="border-color: black"
-                  />
-                </div>
-              </div>
-
-              <div class="field">
-                <div class="control">
-                  <label class="label">Veggie or Vegan?</label>
-                  <label class="radio">
-                    <input type="radio" name="question" />
-                    Yes
-                  </label>
-                  <label class="radio">
-                    <input type="radio" name="question" />
-                    No
-                  </label>
-                </div>
-              </div>
-
-              <button class="button is-primary">Submit</button>
-            </form>
-          </div>
-
-          <div class="column is-half">
-            <div class="box">This is going to be something in two weeks.</div>
-          </div>
-        </div>
+        <h1>Joshua Chin: Lab 6 - Typeahead Entries</h1>
+        <form class="search-form">
+          <input class="search" placeholder="Search Here" />
+          <ul class="suggestions">
+            <li><div class="name">${place.name}</div></li>
+            <div class="category">${place.category}</div>
+            <div class="address">${place.address_line_1}</div>
+            <div class="city">${place.city}</div>
+            <div class="zip">${place.zip}</div>
+          </ul>
+          <br/>
+        </form>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

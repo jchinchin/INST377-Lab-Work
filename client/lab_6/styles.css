@@ -1,33 +1,98 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html {
-    height: 100%;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
-      ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
-    background-color: darkslategray;
-    min-height: 100%;
-  }
-  
-  /* Page Layout */
-  .columns {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .wrapper {
-    display: flex;
-  }
-  .container {
-    max-width: 960px;
-    margin-top: 25px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  background: #ffc600;
+  font-family: "helvetica neue";
+  font-size: 20px;
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’,
+    ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
+  background-color: darkslategray;
+  min-height: 100%;
+}
+
+/* Page Layout */
+.columns {
+  display: flex;}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  max-width: 960px;
+  margin-top: 25px;
+}
+
+input {
+  width: 100%;
+  padding: 20px;
+}
+
+.search-form {
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+input.search {
+  margin: 0;
+  text-align: center;
+  outline: 0;
+  border: 10px solid #f7f7f7;
+  width: 120%;
+  left: -10%;
+  position: relative;
+  top: 10px;
+  z-index: 2;
+  border-radius: 5px;
+  font-size: 40px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+}
+
+.suggestions {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.suggestions li {
+  background: white;
+  border-bottom: 1px solid #d8d8d8;
+  list-style-type: circle;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+  padding: 20px;
+}
+
+span.population {
+  font-size: 15px;
+}
+
+.hl {
+  background: #ffc600;
+}
+
+.name {
+    text-transform: uppercase;
+}
+
+.address {
+    text-transform: uppercase;
+}
+
+.city {
+    text-transform: uppercase;
+}
+
+.ul {
+    list-style-type: circle;
+}
