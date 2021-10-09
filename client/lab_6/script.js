@@ -55,6 +55,9 @@ async function windowActions() {
       })
       .join('');
     suggestions.innerHTML = html;
+    if (!event.target.value) {
+      suggestions.innerHTML = '';
+    }
   }
 
   const searchInput = document.querySelector('.search');
