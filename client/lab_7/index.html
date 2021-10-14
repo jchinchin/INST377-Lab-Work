@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Joshua Chin Lab 7: JSON to Map Markers</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>Joshua Chin: Lab 7 - JSON to Map Markers</h1>
+        <form class="search-form">
+          <input class="search" placeholder="Search Here" />
+          <ul class="suggestions">
+            <li><div class="name"></div></li>
+            <div class="category"></div>
+            <div class="address"></div>
+            <div class="city"></div>
+            <div class="zip"></div>
+          </ul>
+          <br />
+        </form>
+        <div id="mapid"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+  </body>
+</html>
