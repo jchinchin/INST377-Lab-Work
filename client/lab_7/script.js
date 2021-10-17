@@ -1,4 +1,5 @@
 async function windowActions() {
+  mapInit();
   const endpoint =
     "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
 
@@ -9,13 +10,7 @@ async function windowActions() {
   function findMatches(wordToMatch, search) {
     return search.filter((place) => {
       const regex = new RegExp(wordToMatch, "gi");
-      return (
-        place.zip.match(regex) ||
-        place.name.match(regex) ||
-        place.category.match(regex) ||
-        place.address_line_1.match(regex) ||
-        place.city.match(regex)
-      );
+      return place.zip.match(regex);
     });
   }
 
@@ -65,9 +60,28 @@ async function windowActions() {
   const suggestions = document.querySelector(".suggestions");
   suggestions.innerHTML = "";
 
-  searchInput.addEventListener("change", displayMatches);
+  searchInput.addEventListener("input", displayMatches);
   searchInput.addEventListener("keyup", (evt) => {
     displayMatches(evt);
   });
+
+  function mapInit() {
+    const mymap = L.map("mapid").setView([38.9897, -76.9378], 14);
+
+    L.tileLayer(
+      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+      {
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: "mapbox/streets-v11",
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken:
+          "pk.eyJ1IjoiamNoaW4xMjUiLCJhIjoiY2t1dW4xNnJwNjB1czJ2bnp0YWkzc3AycSJ9.QDbfaUKfY2bKcF7XM9t6qg",
+      }
+    ).addTo(mymap);
+  }
 }
+
 window.onload = windowActions;

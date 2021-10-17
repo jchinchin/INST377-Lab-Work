@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Joshua Chin Lab 7: JSON to Map Markers</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -15,19 +19,25 @@
   <body>
     <div class="wrapper">
       <div class="container">
-        <h1>Joshua Chin: Lab 7 - JSON to Map Markers</h1>
-        <form class="search-form">
-          <input class="search" placeholder="Search Here" />
-          <ul class="suggestions">
-            <li><div class="name"></div></li>
-            <div class="category"></div>
-            <div class="address"></div>
-            <div class="city"></div>
-            <div class="zip"></div>
-          </ul>
-          <br />
-        </form>
-        <div id="mapid"></div>
+        <div class="columns">
+          <div class="column is-half">
+            <h1>Joshua Chin: Lab 7 - JSON to Map Markers</h1>
+            <form class="search-form">
+              <input class="search" placeholder="Search Here" />
+              <ul class="suggestions">
+                <li><div class="name"></div></li>
+                <div class="category"></div>
+                <div class="address"></div>
+                <div class="city"></div>
+                <div class="zip"></div>
+              </ul>
+              <br />
+            </form>
+          </div>
+          <div class="column is-half">
+            <div id="mapid"></div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
