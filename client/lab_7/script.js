@@ -1,5 +1,5 @@
 async function windowActions() {
-  mapInit();
+  let mymap = mapInit();
   const endpoint =
     "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
 
@@ -14,9 +14,27 @@ async function windowActions() {
     });
   }
 
+  let markers = [];
+
   function displayMatches(event) {
     const matchArray = findMatches(event.target.value, results);
-    const html = matchArray
+    const firstFive = matchArray.slice(0, 5);
+    markers.forEach((marker) => {
+      marker.remove();
+    });
+    firstFive.forEach((place) => {
+      if (place.geocoded_column_1 != null) {
+        if (place.hasOwnProperty("geocoded_column_1")) {
+          const point = place.geocoded_column_1;
+          const lat = point.coordinates;
+          const markers = lat.reverse();
+          console.log(markers);
+          markers.push(L.marker(markers).addTo(mymap));
+        }
+      }
+    });
+    mymap.panTo(firstFive[0]);
+    const html = firstFive
       .map((place) => {
         const regex = new RegExp(event.target.value, "gi");
         const name = place.name.replace(
@@ -60,7 +78,9 @@ async function windowActions() {
   const suggestions = document.querySelector(".suggestions");
   suggestions.innerHTML = "";
 
-  searchInput.addEventListener("input", displayMatches);
+  searchInput.addEventListener("input", (evt) => {
+    displayMatches(evt);
+  });
   searchInput.addEventListener("keyup", (evt) => {
     displayMatches(evt);
   });
