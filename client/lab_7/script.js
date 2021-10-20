@@ -1,5 +1,4 @@
 async function windowActions() {
-  let mymap = mapInit();
   const endpoint =
     "https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json";
 
@@ -14,26 +13,53 @@ async function windowActions() {
     });
   }
 
+  const searchInput = document.querySelector(".search");
+  const suggestions = document.querySelector(".suggestions");
+  suggestions.innerHTML = "";
+
+  searchInput.addEventListener("input", (evt) => {
+    displayMatches(evt);
+  });
+  // searchInput.addEventListener("input", );
+
   let markers = [];
+
+  function mapInit() {
+    const mymap = L.map("mapid").setView([38.9897, -76.9378], 14);
+
+    L.tileLayer(
+      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+      {
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: "mapbox/streets-v11",
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken:
+          "pk.eyJ1IjoiamNoaW4xMjUiLCJhIjoiY2t1dW4xNnJwNjB1czJ2bnp0YWkzc3AycSJ9.QDbfaUKfY2bKcF7XM9t6qg",
+      }
+    ).addTo(mymap);
+    return mymap;
+  }
+
+  let mymap = mapInit();
 
   function displayMatches(event) {
     const matchArray = findMatches(event.target.value, results);
-    const firstFive = matchArray.slice(0, 5);
+    let firstFive = matchArray.slice(0, 5);
+    console.log(firstFive);
     markers.forEach((marker) => {
       marker.remove();
     });
     firstFive.forEach((place) => {
-      if (place.geocoded_column_1 != null) {
-        if (place.hasOwnProperty("geocoded_column_1")) {
-          const point = place.geocoded_column_1;
-          const lat = point.coordinates;
-          const markers = lat.reverse();
-          console.log(markers);
-          markers.push(L.marker(markers).addTo(mymap));
-        }
+      if (place.hasOwnProperty("geocoded_column_1")) {
+        const point = place.geocoded_column_1;
+        const lat = point.coordinates;
+        const marker = lat.reverse();
+        markers.push(L.marker(marker).addTo(mymap));
       }
     });
-    mymap.panTo(firstFive[0]);
     const html = firstFive
       .map((place) => {
         const regex = new RegExp(event.target.value, "gi");
@@ -72,35 +98,11 @@ async function windowActions() {
     if (!event.target.value) {
       suggestions.innerHTML = "";
     }
-  }
-
-  const searchInput = document.querySelector(".search");
-  const suggestions = document.querySelector(".suggestions");
-  suggestions.innerHTML = "";
-
-  searchInput.addEventListener("input", (evt) => {
-    displayMatches(evt);
-  });
-  searchInput.addEventListener("keyup", (evt) => {
-    displayMatches(evt);
-  });
-
-  function mapInit() {
-    const mymap = L.map("mapid").setView([38.9897, -76.9378], 14);
-
-    L.tileLayer(
-      "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: "mapbox/streets-v11",
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken:
-          "pk.eyJ1IjoiamNoaW4xMjUiLCJhIjoiY2t1dW4xNnJwNjB1czJ2bnp0YWkzc3AycSJ9.QDbfaUKfY2bKcF7XM9t6qg",
-      }
-    ).addTo(mymap);
+    if (firstFive[0].hasOwnProperty("geocoded_column_1")) {
+      mymap.setView(firstFive[0].geocoded_column_1.coordinates.reverse(), 14);
+    } else if (firstFive[1].hasOwnProperty("geocoded_column_1")) {
+      mymap.setView(firstFive[1].geocoded_column_1.coordinates.reverse(), 14);
+    }
   }
 }
 
