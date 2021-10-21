@@ -50,13 +50,13 @@ async function windowActions() {
         tileSize: 512,
         zoomOffset: -1,
         accessToken:
-          "pk.eyJ1IjoiamNoaW4xMjUiLCJhIjoiY2t1dW4xNnJwNjB1czJ2bnp0YWkzc3AycSJ9.QDbfaUKfY2bKcF7XM9t6qg"
+          "pk.eyJ1IjoiamNoaW4xMjUiLCJhIjoiY2t1dW4xNnJwNjB1czJ2bnp0YWkzc3AycSJ9.QDbfaUKfY2bKcF7XM9t6qg",
       }
     ).addTo(mymap);
     return mymap;
   }
 
-  const mymap = mapInit();
+  let mymap = mapInit();
 
   function displayMatches(event) {
     const matchArray = findMatches(event.target.value, results);
@@ -97,7 +97,6 @@ async function windowActions() {
     } catch (error) {
       console.log("No results found");
     }
-    console.log(suggestions.innerHTML);
   }
 }
 

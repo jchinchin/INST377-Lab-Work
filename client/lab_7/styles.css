@@ -21,11 +21,6 @@ body {
 
 /* Page Layout */
 
-.columns {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .wrapper {
   display: flex;
   justify-content: center;
@@ -42,7 +37,9 @@ input {
 }
 
 .search-form {
-  margin: 50px auto;
+  margin-top: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 input.search {
@@ -77,10 +74,6 @@ span.population {
   font-size: 15px;
 }
 
-.hl {
-  background: #ffc600;
-}
-
 .name {
   text-transform: uppercase;
   font-weight: 900;
@@ -94,6 +87,6 @@ span.population {
 }
 
 #mapid {
-  margin-top: 60px;
   height: 450px;
+  margin-top: 60px;
 }
