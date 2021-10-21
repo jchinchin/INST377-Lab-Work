@@ -9,23 +9,36 @@ async function windowActions() {
   function findMatches(wordToMatch, search) {
     return search.filter((place) => {
       const regex = new RegExp(wordToMatch, "gi");
-      return place.zip.match(regex);
+      return (
+        place.zip.match(regex) &&
+        place.address_line_1 != null &&
+        place.category != null &&
+        place.city != null &&
+        place.zip != null &&
+        place.geocoded_column_1 != null
+      );
     });
   }
 
   const searchInput = document.querySelector(".search");
   const suggestions = document.querySelector(".suggestions");
-  suggestions.innerHTML = "";
 
   searchInput.addEventListener("input", (evt) => {
     displayMatches(evt);
   });
-  // searchInput.addEventListener("input", );
 
-  let markers = [];
+  function empty(input) {
+    if (input === "") {
+      suggestions.innerHTML = "";
+    }
+  }
+
+  searchInput.addEventListener("input", empty(searchInput.value));
+
+  const markers = [];
 
   function mapInit() {
-    const mymap = L.map("mapid").setView([38.9897, -76.9378], 14);
+    const mymap = L.map("mapid").setView([38.9897, -76.9378], 13);
 
     L.tileLayer(
       "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -37,23 +50,19 @@ async function windowActions() {
         tileSize: 512,
         zoomOffset: -1,
         accessToken:
-          "pk.eyJ1IjoiamNoaW4xMjUiLCJhIjoiY2t1dW4xNnJwNjB1czJ2bnp0YWkzc3AycSJ9.QDbfaUKfY2bKcF7XM9t6qg",
+          "pk.eyJ1IjoiamNoaW4xMjUiLCJhIjoiY2t1dW4xNnJwNjB1czJ2bnp0YWkzc3AycSJ9.QDbfaUKfY2bKcF7XM9t6qg"
       }
     ).addTo(mymap);
     return mymap;
   }
 
-  let mymap = mapInit();
+  const mymap = mapInit();
 
   function displayMatches(event) {
     const matchArray = findMatches(event.target.value, results);
-    let firstFive = matchArray.slice(0, 5);
-    console.log(firstFive);
-    markers.forEach((marker) => {
-      marker.remove();
-    });
+    const firstFive = matchArray.slice(0, 5);
     firstFive.forEach((place) => {
-      if (place.hasOwnProperty("geocoded_column_1")) {
+      if (place.geocoded_column_1 != null) {
         const point = place.geocoded_column_1;
         const lat = point.coordinates;
         const marker = lat.reverse();
@@ -67,42 +76,28 @@ async function windowActions() {
           regex,
           `<span class="h1">${event.target.value}</span>`
         );
-        const category = place.category.replace(
-          regex,
-          `<span class="h1">${event.target.value}</span>`
-        );
         const address_line_1 = place.address_line_1.replace(
-          regex,
-          `<span class="h1">${event.target.value}</span>`
-        );
-        const city = place.city.replace(
-          regex,
-          `<span class="h1">${event.target.value}</span>`
-        );
-        const zip = place.zip.replace(
           regex,
           `<span class="h1">${event.target.value}</span>`
         );
         return `
           <li>
             <span class="name">${name}</span><br/>
-            <span class="category">${category}</span><br/>
             <span class="address_line_1">${address_line_1}</span><br/>
-            <span class="city">${city}</span><br/>
-            <span class="zip">${zip}</span><br/>
           </li>
         `;
       })
       .join("");
     suggestions.innerHTML = html;
-    if (!event.target.value) {
-      suggestions.innerHTML = "";
+    empty(searchInput.value);
+    try {
+      if (firstFive[0].geocoded_column_1.coordinates != null) {
+        mymap.setView(firstFive[0].geocoded_column_1.coordinates.reverse(), 13);
+      }
+    } catch (error) {
+      console.log("No results found");
     }
-    if (firstFive[0].hasOwnProperty("geocoded_column_1")) {
-      mymap.setView(firstFive[0].geocoded_column_1.coordinates.reverse(), 14);
-    } else if (firstFive[1].hasOwnProperty("geocoded_column_1")) {
-      mymap.setView(firstFive[1].geocoded_column_1.coordinates.reverse(), 14);
-    }
+    console.log(suggestions.innerHTML);
   }
 }
 

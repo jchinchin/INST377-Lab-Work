@@ -21,10 +21,16 @@ body {
 
 /* Page Layout */
 
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
 }
+
 .container {
   max-width: 960px;
   margin-top: 25px;
@@ -36,35 +42,35 @@ input {
 }
 
 .search-form {
-  max-width: 400px;
   margin: 50px auto;
 }
 
 input.search {
   margin: 0;
-  text-align: center;
+  text-align: left;
   outline: 0;
-  border: 10px solid #f7f7f7;
-  width: 120%;
-  left: -10%;
+  border: 1px solid gray;
+  width: 100%;
   position: relative;
   top: 10px;
   z-index: 2;
   border-radius: 5px;
-  font-size: 40px;
+  font-size: 16px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+  margin-bottom: 10px;
 }
 
 .suggestions {
-  margin: 0;
+  width: auto;
 }
 
 .suggestions li {
-  background: white;
+  background: turquoise;
   border-bottom: 1px solid #d8d8d8;
-  list-style-type: circle;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
   padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 span.population {
@@ -77,16 +83,17 @@ span.population {
 
 .name {
   text-transform: uppercase;
+  font-weight: 900;
+  font-size: 24px;
 }
 
-.address {
+.address_line_1 {
   text-transform: uppercase;
-}
-
-.city {
-  text-transform: uppercase;
+  font-style: italic;
+  font-size: 22px;
 }
 
 #mapid {
+  margin-top: 60px;
   height: 450px;
 }
